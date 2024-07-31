@@ -1,4 +1,3 @@
-
 local Frost = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -253,7 +252,7 @@ function Frost:CreateModal(parent, title, content, size, position)
     })
 
     local modalContent = createInstance("Frame", {
-        Size = UDim2.new(0, size.X.Offset - 20, 0, size.Y.Offset - 20),
+        Size = UDim2.new(1, -20, 1, -20),
         Position = UDim2.new(0, 10, 0, 10),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         Parent = modal,
