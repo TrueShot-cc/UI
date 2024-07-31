@@ -1,8 +1,3 @@
---[[
-    Roblox UI Library: Frost
-    Author: ChatGPT
-    Description: A comprehensive UI Library for Roblox with advanced features including draggable windows, animations, and versatile components.
-]]--
 
 local Frost = {}
 local TweenService = game:GetService("TweenService")
@@ -258,51 +253,54 @@ function Frost:CreateModal(parent, title, content, size, position)
     })
 
     local modalContent = createInstance("Frame", {
-        Size = UDim 2.new(0, size.X.Offset - 20, 0, size.Y.Offset - 20),
+        Size = UDim2.new(0, size.X.Offset - 20, 0, size.Y.Offset - 20),
         Position = UDim2.new(0, 10, 0, 10),
         BackgroundColor3 = Color3.fromRGB(50, 50, 50),
         Parent = modal,
-        })
-        local titleBar = createInstance("Frame", {
-            Size = UDim2.new(1, 0, 0, 30),
-            BackgroundColor3 = Color3.fromRGB(70, 70, 70),
-            Parent = modalContent,
-        })
-        
-        local titleLabel = createInstance("TextLabel", {
-            Size = UDim2.new(1, -40, 1, 0),
-            Position = UDim2.new(0, 5, 0, 0),
-            BackgroundTransparency = 1,
-            Text = title,
-            TextColor3 = Color3.fromRGB(255, 255, 255),
-            TextSize = 18,
-            Parent = titleBar,
-        })
-        
-        local closeButton = createInstance("TextButton", {
-            Size = UDim2.new(0, 40, 1, 0),
-            Position = UDim2.new(1, -40, 0, 0),
-            BackgroundColor3 = Color3.fromRGB(255, 0, 0),
-            Text = "X",
-            TextColor3 = Color3.fromRGB(255, 255, 255),
-            Parent = titleBar,
-        })
-        
-        local contentLabel = createInstance("TextLabel", {
-            Size = UDim2.new(1, 0, 1, -30),
-            Position = UDim2.new(0, 0, 0, 30),
-            BackgroundTransparency = 1,
-            Text = content,
-            TextColor3 = Color3.fromRGB(255, 255, 255),
-            TextSize = 16,
-            TextWrapped = true,
-            Parent = modalContent,
-        })
-        
-        closeButton.MouseButton1Click:Connect(function()
-            modal:Destroy()
-        end)
-        
-        return modal
-    end
+    })
+
+    local titleBar = createInstance("Frame", {
+        Size = UDim2.new(1, 0, 0, 30),
+        BackgroundColor3 = Color3.fromRGB(70, 70, 70),
+        Parent = modalContent,
+    })
+
+    local titleLabel = createInstance("TextLabel", {
+        Size = UDim2.new(1, -40, 1, 0),
+        Position = UDim2.new(0, 5, 0, 0),
+        BackgroundTransparency = 1,
+        Text = title,
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 18,
+        Parent = titleBar,
+    })
+
+    local closeButton = createInstance("TextButton", {
+        Size = UDim2.new(0, 40, 1, 0),
+        Position = UDim2.new(1, -40, 0, 0),
+        BackgroundColor3 = Color3.fromRGB(255, 0, 0),
+        Text = "X",
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        Parent = titleBar,
+    })
+
+    local contentLabel = createInstance("TextLabel", {
+        Size = UDim2.new(1, 0, 1, -30),
+        Position = UDim2.new(0, 0, 0, 30),
+        BackgroundTransparency = 1,
+        Text = content,
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        TextSize = 16,
+        TextWrapped = true,
+        Parent = modalContent,
+    })
+
+    closeButton.MouseButton1Click:Connect(function()
+        modal:Destroy()
+    end)
+
+    return modal
+end
+
+-- Return the library
 return Frost
