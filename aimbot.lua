@@ -72,8 +72,8 @@ end
 
 --// Checking for multiple processes
 
-if ExunysDeveloperAimbot then
-	ExunysDeveloperAimbot:Exit()
+if Aimbot then
+	Aimbot:Exit()
 end
 
 --// Environment
@@ -128,7 +128,7 @@ getgenv().ExunysDeveloperAimbot = {
 	FOVCircleOutline = Drawingnew("Circle")
 }
 
-local Environment = getgenv().ExunysDeveloperAimbot
+local Environment = getgenv().Aimbot
 
 SetRenderProperty(Environment.FOVCircle, "Visible", false)
 SetRenderProperty(Environment.FOVCircleOutline, "Visible", false)
@@ -332,8 +332,8 @@ end)
 
 --// Functions
 
-function Environment.Exit(self) -- METHOD | ExunysDeveloperAimbot:Exit(<void>)
-	assert(self, "EXUNYS_AIMBOT-V3.Exit: Missing parameter #1 \"self\" <table>.")
+function Environment.Exit(self)
+	assert(self, "AIMBOT.Exit: Missing parameter #1 \"self\" <table>.")
 
 	for Index, _ in next, ServiceConnections do
 		Disconnect(ServiceConnections[Index])
@@ -343,10 +343,10 @@ function Environment.Exit(self) -- METHOD | ExunysDeveloperAimbot:Exit(<void>)
 
 	self.FOVCircle:Remove()
 	self.FOVCircleOutline:Remove()
-	getgenv().ExunysDeveloperAimbot = nil
+	getgenv().Aimbot = nil
 end
 
-function Environment.Restart() -- ExunysDeveloperAimbot.Restart(<void>)
+function Environment.Restart()
 	for Index, _ in next, ServiceConnections do
 		Disconnect(ServiceConnections[Index])
 	end
